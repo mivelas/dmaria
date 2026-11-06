@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
 
@@ -21,7 +21,7 @@
        ========================================================================= -->
   <header class="site-header">
     <div class="header-container">
-      <a href="/" class="brand-logo" aria-label="d'María Homepage">
+      <a href="./" class="brand-logo" aria-label="d'María Homepage">
         <span class="brand-title">d'María<span>.</span></span>
         <span class="brand-sub" data-i18n="tagline">Artisanal Pâtisserie & Bespoke Cakes</span>
       </a>
@@ -113,7 +113,7 @@
       <div class="hero-visual">
         <div class="hero-card-stack">
           <img 
-            src="/images/ChocolateCake-web.jpg" 
+            src="./images/ChocolateCake-web.jpg"
             alt="Artisanal Chocolate Cake by d'María" 
             class="hero-image" 
           />
@@ -193,7 +193,7 @@
         </p>
       </div>
 
-      <!-- Rendered dynamically by app.js from /api/desserts -->
+      <!-- Rendered dynamically from the API or static site data -->
       <div id="dessertsGrid" class="desserts-grid">
         <!-- Dynamic Cards inserted here -->
       </div>
@@ -282,7 +282,7 @@
                 <!-- Apple Pie Option -->
                 <label class="dessert-picker-card selected" id="pickerCardApple">
                   <input type="radio" name="dessertId" value="apple-pie" checked />
-                  <img src="/images/ApplePie-thumb.jpg" alt="Apple Pie" class="picker-thumb" />
+                  <img src="./images/ApplePie-thumb.jpg" alt="Apple Pie" class="picker-thumb" />
                   <div class="picker-text">
                     <strong data-i18n="form_dessert_apple">Traditional Artisanal Apple Pie</strong>
                     <span data-i18n="form_dessert_apple_sub">Spiced apples & golden butter lattice</span>
@@ -292,7 +292,7 @@
                 <!-- Chocolate Cake Option -->
                 <label class="dessert-picker-card" id="pickerCardChoc">
                   <input type="radio" name="dessertId" value="chocolate-cake" />
-                  <img src="/images/ChocolateCake-thumb.jpg" alt="Chocolate Cake" class="picker-thumb" />
+                  <img src="./images/ChocolateCake-thumb.jpg" alt="Chocolate Cake" class="picker-thumb" />
                   <div class="picker-text">
                     <strong data-i18n="form_dessert_choc">Decadent Dark Chocolate Ganache Cake</strong>
                     <span data-i18n="form_dessert_choc_sub">70% Belgian cacao & silky ganache</span>
@@ -302,7 +302,7 @@
                 <!-- Red Velvet Cake Option -->
                 <label class="dessert-picker-card" id="pickerCardRed">
                   <input type="radio" name="dessertId" value="red-velvet-cake" />
-                  <img src="/images/RedVelvetCake-thumb.jpg" alt="Red Velvet Cake" class="picker-thumb" />
+                  <img src="./images/RedVelvetCake-thumb.jpg" alt="Red Velvet Cake" class="picker-thumb" />
                   <div class="picker-text">
                     <strong data-i18n="form_dessert_red">Signature Ruby Red Velvet Cake</strong>
                     <span data-i18n="form_dessert_red_sub">Crimson buttermilk & Madagascar vanilla frosting</span>
@@ -474,7 +474,7 @@
           </div>
 
           <div class="preview-media">
-            <img id="previewDessertImg" src="/images/ApplePie-thumb.jpg" alt="Selected Dessert Preview" />
+            <img id="previewDessertImg" src="./images/ApplePie-thumb.jpg" alt="Selected Dessert Preview" />
           </div>
 
           <h3 id="previewDessertName" class="preview-dessert-name">Traditional Artisanal Apple Pie</h3>
@@ -637,7 +637,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="/js/i18n.js"></script>
-  <script src="/js/app.js"></script>
+  <script src="./js/i18n.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 </html>

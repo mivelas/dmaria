@@ -68,6 +68,14 @@ The application will run on **`http://localhost:3030`** (or your custom `$PORT`)
 npm test
 ```
 
+### 4. Build for GitHub Pages
+
+```bash
+npm run build
+```
+
+GitHub Pages serves the static site from `dist/`; the dessert catalog and bakery details are included in the build. Since Pages cannot run the Express API, order requests are sent through Web3Forms when configured, or opened as a prefilled WhatsApp message.
+
 ---
 
 ## ⚙️ Configuration

@@ -1,5 +1,6 @@
 // Main Client Application Logic for d'María Bakery
 let dessertsData = [];
+let isStaticHosting = false;
 let bakeryInfo = {
   name: "d'María",
   whatsapp: "15553827421",
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Setup lead time on the date input
   setupDatePicker();
 
-  // Load backend data
+  // Load backend data, with static JSON fallbacks for GitHub Pages.
   await loadBakeryInfo();
   await loadDesserts();
 
@@ -45,6 +46,27 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Setup Modal close listeners
   setupModal();
 });
+
+function resolveSitePath(sitePath) {
+  return new URL(sitePath.replace(/^\/+/, ''), document.baseURI).href;
+}
+
+async function loadSiteData(apiPath, staticPath) {
+  try {
+    const response = await fetch(`./${apiPath}`);
+    if (response.ok) return await response.json();
+    console.warn(`API ${apiPath} returned ${response.status}; using static site data.`);
+  } catch (err) {
+    console.warn(`API ${apiPath} is unavailable; using static site data:`, err);
+  }
+
+  const response = await fetch(`./${staticPath}`);
+  if (!response.ok) {
+    throw new Error(`Could not load static site data from ${staticPath} (${response.status}).`);
+  }
+  isStaticHosting = true;
+  return response.json();
+}
 
 // Configure minimum date (lead time)
 function setupDatePicker() {
@@ -74,14 +96,11 @@ function setupDatePicker() {
 // Fetch Bakery general info
 async function loadBakeryInfo() {
   try {
-    const res = await fetch('/api/info');
-    if (res.ok) {
-      const data = await res.json();
-      bakeryInfo = { ...bakeryInfo, ...data.data };
-      updateContactInfoDOM();
-    }
+    const result = await loadSiteData('api/info', 'data/info.json');
+    bakeryInfo = { ...bakeryInfo, ...result.data };
+    updateContactInfoDOM();
   } catch (err) {
-    console.warn('Using default bakery info:', err);
+    console.error('Unable to load bakery information:', err);
   }
 }
 
@@ -105,17 +124,14 @@ function updateContactInfoDOM() {
 // Fetch Desserts
 async function loadDesserts() {
   try {
-    const res = await fetch('/api/desserts');
-    if (res.ok) {
-      const result = await res.json();
-      dessertsData = result.data;
-      const lang = getCurrentLang();
-      renderDesserts(lang);
-      updateFormSizesDropdown(lang);
-      updateLivePreview();
-    }
+    const result = await loadSiteData('api/desserts', 'data/desserts.json');
+    dessertsData = result.data;
+    const lang = getCurrentLang();
+    renderDesserts(lang);
+    updateFormSizesDropdown(lang);
+    updateLivePreview();
   } catch (err) {
-    console.error('Error fetching desserts:', err);
+    console.error('Unable to load desserts:', err);
   }
 }
 
@@ -140,7 +156,7 @@ function renderDesserts(lang) {
     card.innerHTML = `
       <div class="card-media-wrapper" onclick="openDessertModal('${item.id}')">
         <img 
-          src="${item.imageWeb}" 
+          src="${resolveSitePath(item.imageWeb)}"
           alt="${name}" 
           class="card-img" 
           loading="lazy" 
@@ -214,9 +230,9 @@ function openDessertModal(dessertId) {
     <div class="modal-grid">
       <div class="modal-gallery">
         <div class="modal-image-container">
-          <img src="${item.imageWeb}" alt="${name}" id="modalMainImg" class="modal-main-image" />
+          <img src="${resolveSitePath(item.imageWeb)}" alt="${name}" id="modalMainImg" class="modal-main-image" />
           <div class="modal-image-overlay">
-            <a href="${item.image}" target="_blank" rel="noopener" class="btn btn-glass-sm">
+            <a href="${resolveSitePath(item.image)}" target="_blank" rel="noopener" class="btn btn-glass-sm">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                 <polyline points="15 3 21 3 21 9"></polyline>
@@ -410,14 +426,14 @@ function updateLivePreview() {
   const dessert = dessertsData.find(d => d.id === dessertId);
 
   let dessertName = isEs ? 'Tarta de Manzana' : 'Artisanal Apple Pie';
-  let dessertThumb = '/images/ApplePie-thumb.jpg';
+  let dessertThumb = './images/ApplePie-thumb.jpg';
 
   if (dessert) {
     dessertName = isEs ? itemShortName(dessert.nameEs) : itemShortName(dessert.nameEn);
     dessertThumb = dessert.imageThumb;
   } else if (dessertId === 'custom-combo') {
     dessertName = isEs ? 'Combinación Personalizada' : 'Custom Combo Request';
-    dessertThumb = '/images/ChocolateCake-thumb.jpg';
+    dessertThumb = './images/ChocolateCake-thumb.jpg';
   }
 
   const previewNameEl = document.getElementById('previewDessertName');
@@ -425,7 +441,7 @@ function updateLivePreview() {
   const hiddenDessertName = document.getElementById('dessertNameHidden');
 
   if (previewNameEl) previewNameEl.textContent = dessertName;
-  if (previewImgEl) previewImgEl.src = dessertThumb;
+  if (previewImgEl) previewImgEl.src = resolveSitePath(dessertThumb);
   if (hiddenDessertName) hiddenDessertName.value = dessertName;
 
   // Date
@@ -557,6 +573,56 @@ async function handleFormSubmit(e) {
   };
 
   try {
+    if (isStaticHosting) {
+      const web3KeyInput = document.getElementById('web3formsAccessKey');
+      const web3Key = web3KeyInput ? web3KeyInput.value.trim() : '';
+      if (web3Key && web3Key !== 'YOUR_ACCESS_KEY_HERE') {
+        const web3FormData = new FormData(form);
+        web3FormData.set('dessert', document.getElementById('dessertNameHidden').value);
+        web3FormData.set('size', sizeLabel || size);
+        web3FormData.set('occasion', occasionLabel || occasion);
+        web3FormData.set('preferred_contact', preferredContact.toUpperCase());
+
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: web3FormData
+          });
+          const result = await response.json();
+          if (response.ok && result.success) {
+            alert(isEs ? 'Solicitud enviada. ¡Gracias!' : 'Request sent. Thank you!');
+            form.reset();
+            setupDatePicker();
+            updateDessertSelectionUI();
+            updateFormSizesDropdown(lang);
+            updateLivePreview();
+            return;
+          }
+          console.error('Web3Forms submission failed:', result);
+        } catch (err) {
+          console.error('Web3Forms submission failed:', err);
+        }
+      }
+
+      const message = [
+        isEs ? 'Hola d\'María, quisiera solicitar un pedido personalizado.' : "Hello d'María, I'd like to request a custom order.",
+        `${isEs ? 'Nombre' : 'Name'}: ${customerName}`,
+        `${isEs ? 'Correo' : 'Email'}: ${customerEmail}`,
+        `${isEs ? 'Teléfono' : 'Phone'}: ${customerPhone}`,
+        `${isEs ? 'Postre' : 'Dessert'}: ${document.getElementById('dessertNameHidden').value}`,
+        `${isEs ? 'Tamaño' : 'Size'}: ${sizeLabel || size}`,
+        `${isEs ? 'Invitados' : 'Guests'}: ${guestCount}`,
+        `${isEs ? 'Fecha' : 'Date'}: ${eventDate}`,
+        `${isEs ? 'Ocasión' : 'Occasion'}: ${occasionLabel}`,
+        `${isEs ? 'Entrega' : 'Fulfillment'}: ${fulfillment}`,
+        customNotes && `${isEs ? 'Notas' : 'Notes'}: ${customNotes}`,
+        dietaryNotes && `${isEs ? 'Notas dietéticas' : 'Dietary notes'}: ${dietaryNotes}`
+      ].filter(Boolean).join('\n');
+      const whatsappNumber = bakeryInfo.whatsapp.replace(/\D/g, '');
+      window.location.assign(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`);
+      return;
+    }
+
     // 1. Web3Forms Integration: If access key is configured, post to Web3Forms
     const web3KeyInput = document.getElementById('web3formsAccessKey');
     const web3Key = web3KeyInput ? web3KeyInput.value.trim() : '';
@@ -578,7 +644,7 @@ async function handleFormSubmit(e) {
     }
 
     // 2. Local Node.js API storage & reference code generation
-    const res = await fetch('/api/requests', {
+    const res = await fetch('./api/requests', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
