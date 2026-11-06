@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>d'María | Artisanal Pâtisserie & Bespoke Cakes</title>
+  <meta name="description" content="d'María is an artisanal bespoke pastry studio. We don't mass produce cakes. Every single pie and cake is personalized and handcrafted to order with pure, noble ingredients." />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       Site Header & Navigation
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="/" class="brand-logo" aria-label="d'María Homepage">
+        <span class="brand-title">d'María<span>.</span></span>
+        <span class="brand-sub" data-i18n="tagline">Artisanal Pâtisserie & Bespoke Cakes</span>
+      </a>
+
+      <!-- Nav Menu (Mobile Drawer & Desktop Bar) -->
+      <nav id="navMenu" class="nav-links">
+        <a href="#creations" data-i18n="nav_creations">The Creations</a>
+        <a href="#philosophy" data-i18n="nav_philosophy">Our Philosophy</a>
+        <a href="#process" data-i18n="nav_process">How It Works</a>
+        <a href="#requestSection" data-i18n="nav_request">Request Custom Order</a>
+        <div class="nav-mobile-cta-wrapper">
+          <a href="#requestSection" class="btn btn-primary btn-block nav-mobile-cta" data-i18n="hero_cta_request">
+            Request an Order
+          </a>
+        </div>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher" role="group" aria-label="Language selection">
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="es">ES</button>
+        </div>
+
+        <a href="#requestSection" class="btn btn-primary header-cta-btn" data-i18n="hero_cta_request">
+          Request an Order
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Backdrop -->
+    <div id="navBackdrop" class="nav-backdrop" aria-hidden="true"></div>
+  </header>
+
+  <!-- =========================================================================
+       Hero Section
+       ========================================================================= -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge" data-i18n="hero_badge">
+          Small Batch • Made to Order
+        </div>
+
+        <h1 class="hero-title">
+          <span data-i18n="hero_title_1">Handcrafted.</span>
+          <span class="highlight" data-i18n="hero_title_2">Personalized.</span>
+          <span data-i18n="hero_title_3">Never Mass-Produced.</span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero_desc">
+          We believe exceptional celebrations deserve a dessert baked specifically for you. No freezers, no production lines — only pure ingredients, unhurried passion, and bespoke recipes tailored to your taste.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#requestSection" class="btn btn-primary" data-i18n="hero_cta_request">
+            Request Your Custom Order
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#creations" class="btn btn-outline" data-i18n="hero_cta_explore">
+            Explore the 3 Creations
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <span class="hero-stat-title" data-i18n="hero_stat_batches">100% Made to Order</span>
+            <span class="hero-stat-label">Zero frozen inventory</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-title" data-i18n="hero_stat_craft">All-Butter & Pure Cacao</span>
+            <span class="hero-stat-label">Natural, honest ingredients</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-title" data-i18n="hero_stat_lead">48-72h Artisan Lead Time</span>
+            <span class="hero-stat-label">Bespoke scheduling</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <img 
+            src="/images/ChocolateCake-web.jpg" 
+            alt="Artisanal Chocolate Cake by d'María" 
+            class="hero-image" 
+          />
+          <div class="hero-overlay-tag">
+            <div class="hero-tag-text">
+              <strong>d'María Signature</strong>
+              <span>Custom Order Patisserie</span>
+            </div>
+            <a href="#creations" class="btn btn-glass-sm" data-i18n="showcase_filter_all">
+              Discover
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Brand Philosophy: Why Personalized / Never Mass Produced
+       ========================================================================= -->
+  <section id="philosophy" class="philosophy-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="philo_eyebrow">Our Core Belief</span>
+        <h2 class="section-title" data-i18n="philo_title">Why We Choose Bespoke Over Mass Production</h2>
+        <p class="section-subtitle" data-i18n="philo_subtitle">
+          In a world of factory cakes and frozen inventory, d'María exists as a sanctuary of mindful, artisanal baking.
+        </p>
+      </div>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <span class="philosophy-icon">❄️❌</span>
+          <h3 data-i18n="philo_card1_title">No Warehouses, No Freezers</h3>
+          <p data-i18n="philo_card1_desc">
+            Every single crust is rolled, every sponge is baked, and every ganache is whipped fresh within hours of your event. Never chilled from last week.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <span class="philosophy-icon">✨</span>
+          <h3 data-i18n="philo_card2_title">Tailored to Your Celebration</h3>
+          <p data-i18n="philo_card2_desc">
+            Whether it’s a delicate dinner for six or a grand milestone, every order is customized: sweetness level, flavor profile, dietary care, and hand-finished styling.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <span class="philosophy-icon">🧈🍫</span>
+          <h3 data-i18n="philo_card3_title">Pure & Honest Ingredients</h3>
+          <p data-i18n="philo_card3_desc">
+            Real European-style butter, farm-fresh eggs, pure Madagascar Bourbon vanilla, single-origin Belgian cacao, and seasonal heirloom fruit. Zero shortcuts.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <span class="philosophy-icon">💬</span>
+          <h3 data-i18n="philo_card4_title">Direct Baker Dialogue</h3>
+          <p data-i18n="philo_card4_desc">
+            You speak directly with the artisan. We listen to your vision and handcraft a showpiece that honors your moment with warmth and elegance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Showcase: The Three Signature Creations
+       ========================================================================= -->
+  <section id="creations" class="showcase-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="showcase_eyebrow">The Collection</span>
+        <h2 class="section-title" data-i18n="showcase_title">Our Three Signature Creations</h2>
+        <p class="section-subtitle" data-i18n="showcase_subtitle">
+          We focus our dedication entirely on mastering three timeless dessert archetypes, customized to your exact desire.
+        </p>
+      </div>
+
+      <!-- Rendered dynamically by app.js from /api/desserts -->
+      <div id="dessertsGrid" class="desserts-grid">
+        <!-- Dynamic Cards inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       The Bespoke Process
+       ========================================================================= -->
+  <section id="process" class="process-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="process_eyebrow">Simple & Personal</span>
+        <h2 class="section-title" data-i18n="process_title">How to Commission Your Dessert</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-num" data-i18n="process_step1_num">01</div>
+          <h3 data-i18n="process_step1_title">Submit Your Vision</h3>
+          <p data-i18n="process_step1_desc">
+            Choose your dessert, event date, guest count, and personalized flavor or aesthetic requests through our online inquiry form.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num" data-i18n="process_step2_num">02</div>
+          <h3 data-i18n="process_step2_title">Baker Consultation</h3>
+          <p data-i18n="process_step2_desc">
+            We review your request, confirm availability, and send a personalized quote and confirmation directly to your WhatsApp or Email.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num" data-i18n="process_step3_num">03</div>
+          <h3 data-i18n="process_step3_title">Fresh Handcrafted Bake</h3>
+          <p data-i18n="process_step3_desc">
+            Your cake or pie is baked from scratch with meticulous care, ready for scheduled studio pickup or private local hand-delivery.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Interactive Custom Order Request Form
+       ========================================================================= -->
+  <section id="requestSection" class="request-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="form_eyebrow">Bespoke Commission</span>
+        <h2 class="section-title" data-i18n="form_title">Request Your Custom Order</h2>
+        <p class="section-subtitle" data-i18n="form_subtitle">
+          Tell us about your celebration. We will review availability and contact you personally within 24 hours.
+        </p>
+      </div>
+
+      <!-- Lead time notice banner -->
+      <div class="lead-notice-banner">
+        <span class="lead-notice-icon">⏳</span>
+        <div data-i18n="form_notice_lead">
+          Lead time notice: Because all items are scratch-baked to order, please submit requests at least 3 days before your event.
+        </div>
+      </div>
+
+      <div class="form-layout">
+        <!-- Form Side -->
+        <div class="form-container">
+          <!-- Web3Forms Ready: To activate Web3Forms email delivery directly to your inbox:
+               1. Get your free Access Key at https://web3forms.com
+               2. Paste it in the access_key input below (value="YOUR_ACCESS_KEY_HERE")
+               The script automatically routes submissions to Web3Forms when an access key is set! -->
+          <form id="customOrderForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <!-- Web3Forms Hidden Configuration -->
+            <input type="hidden" name="access_key" id="web3formsAccessKey" value="" />
+            <input type="hidden" name="subject" value="New Custom Cake Inquiry — d'María" />
+            <input type="hidden" name="from_name" value="d'María Artisanal Bakery" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none;" />
+            <input type="hidden" name="dessert_name" id="dessertNameHidden" value="Traditional Artisanal Apple Pie" />
+            
+            <!-- Section 1: Dessert Picker -->
+            <fieldset class="form-fieldset">
+              <legend class="form-legend" data-i18n="form_sec_dessert">1. Select Your Creation</legend>
+
+              <div class="dessert-picker-grid">
+                <!-- Apple Pie Option -->
+                <label class="dessert-picker-card selected" id="pickerCardApple">
+                  <input type="radio" name="dessertId" value="apple-pie" checked />
+                  <img src="/images/ApplePie-thumb.jpg" alt="Apple Pie" class="picker-thumb" />
+                  <div class="picker-text">
+                    <strong data-i18n="form_dessert_apple">Traditional Artisanal Apple Pie</strong>
+                    <span data-i18n="form_dessert_apple_sub">Spiced apples & golden butter lattice</span>
+                  </div>
+                </label>
+
+                <!-- Chocolate Cake Option -->
+                <label class="dessert-picker-card" id="pickerCardChoc">
+                  <input type="radio" name="dessertId" value="chocolate-cake" />
+                  <img src="/images/ChocolateCake-thumb.jpg" alt="Chocolate Cake" class="picker-thumb" />
+                  <div class="picker-text">
+                    <strong data-i18n="form_dessert_choc">Decadent Dark Chocolate Ganache Cake</strong>
+                    <span data-i18n="form_dessert_choc_sub">70% Belgian cacao & silky ganache</span>
+                  </div>
+                </label>
+
+                <!-- Red Velvet Cake Option -->
+                <label class="dessert-picker-card" id="pickerCardRed">
+                  <input type="radio" name="dessertId" value="red-velvet-cake" />
+                  <img src="/images/RedVelvetCake-thumb.jpg" alt="Red Velvet Cake" class="picker-thumb" />
+                  <div class="picker-text">
+                    <strong data-i18n="form_dessert_red">Signature Ruby Red Velvet Cake</strong>
+                    <span data-i18n="form_dessert_red_sub">Crimson buttermilk & Madagascar vanilla frosting</span>
+                  </div>
+                </label>
+
+                <!-- Custom Combo Option -->
+                <label class="dessert-picker-card" id="pickerCardCustom">
+                  <input type="radio" name="dessertId" value="custom-combo" />
+                  <div class="picker-thumb" style="background: rgba(212,163,115,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">✨</div>
+                  <div class="picker-text">
+                    <strong data-i18n="form_dessert_custom">Special Combo / Custom Event</strong>
+                    <span data-i18n="form_dessert_custom_sub">Multiple desserts or specific bespoke vision</span>
+                  </div>
+                </label>
+              </div>
+            </fieldset>
+
+            <!-- Section 2: Details & Customization -->
+            <fieldset class="form-fieldset">
+              <legend class="form-legend" data-i18n="form_sec_details">2. Event & Customization Details</legend>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="eventDate" class="form-label" data-i18n="form_label_date">Event / Celebration Date</label>
+                  <input type="date" id="eventDate" name="event_date" class="form-input" required />
+                  <span class="form-help" data-i18n="form_date_help">Minimum 3 days advance notice for artisan prep</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="guestCount" class="form-label" data-i18n="form_label_guests">Estimated Guests / Servings</label>
+                  <input type="number" id="guestCount" name="guest_count" class="form-input" min="4" max="150" placeholder="e.g. 12" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="dessertSize" class="form-label" data-i18n="form_label_size">Desired Size / Format</label>
+                  <select id="dessertSize" name="dessert_size" class="form-select">
+                    <!-- Populated dynamically based on dessert choice -->
+                  </select>
+                </div>
+
+                <!-- <div class="form-group">
+                  <label for="occasion" class="form-label" data-i18n="form_label_occasion">Occasion</label>
+                  <select id="occasion" name="occasion" class="form-select">
+                    <option value="birthday" data-i18n="form_occ_birthday">Birthday Celebration</option>
+                    <option value="anniversary" data-i18n="form_occ_anniversary">Anniversary / Romantic Milestone</option>
+                    <option value="gathering" data-i18n="form_occ_gathering">Family Gathering / Dinner Party</option>
+                    <option value="wedding" data-i18n="form_occ_wedding">Wedding / Intimate Elopement</option>
+                    <option value="holiday" data-i18n="form_occ_holiday">Holiday / Festive Table</option>
+                    <option value="other" data-i18n="form_occ_other">Other Celebration</option>
+                  </select>
+                </div> -->
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" data-i18n="form_label_fulfillment">Fulfillment Preference</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="fulfillment" value="pickup" checked />
+                    <span data-i18n="form_opt_pickup">Studio Pickup (Free by appointment)</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="fulfillment" value="delivery" />
+                    <span data-i18n="form_opt_delivery">Hand Delivery (Local area)</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="customNotes" class="form-label" data-i18n="form_label_notes">Personalization & Styling Notes</label>
+                <textarea 
+                  id="customNotes" 
+                  name="custom_notes"
+                  class="form-textarea" 
+                  data-i18n-placeholder="form_notes_placeholder"
+                  placeholder="Tell us about your vision: sweetness preference, custom message inscription (e.g. 'Happy 30th Sofia!'), finish style, or color accents..."
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="dietaryNotes" class="form-label" data-i18n="form_label_dietary">Dietary & Allergy Considerations</label>
+                <textarea 
+                  id="dietaryNotes" 
+                  name="dietary_notes"
+                  class="form-textarea" 
+                  style="min-height: 60px;" 
+                  data-i18n-placeholder="form_dietary_placeholder"
+                  placeholder="Nut allergies, reduced sugar, dairy sensitivities, etc..."
+                ></textarea>
+              </div>
+            </fieldset>
+
+            <!-- Section 3: Contact Info -->
+            <fieldset class="form-fieldset">
+              <legend class="form-legend" data-i18n="form_sec_contact">3. Your Contact Information</legend>
+
+              <div class="form-group">
+                <label for="customerName" class="form-label" data-i18n="form_label_name">Full Name</label>
+                <input 
+                  type="text" 
+                  id="customerName" 
+                  name="name"
+                  class="form-input" 
+                  data-i18n-placeholder="form_name_placeholder"
+                  placeholder="e.g. Sofia Martinez" 
+                  required 
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="customerEmail" class="form-label" data-i18n="form_label_email">Email Address</label>
+                  <input 
+                    type="email" 
+                    id="customerEmail" 
+                    name="email"
+                    class="form-input" 
+                    data-i18n-placeholder="form_email_placeholder"
+                    placeholder="sofia@example.com" 
+                    required 
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="customerPhone" class="form-label" data-i18n="form_label_phone">Phone / WhatsApp Number</label>
+                  <input 
+                    type="tel" 
+                    id="customerPhone" 
+                    name="phone"
+                    class="form-input" 
+                    data-i18n-placeholder="form_phone_placeholder"
+                    placeholder="+1 (555) 000-0000" 
+                    required 
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="preferredContact" class="form-label" data-i18n="form_label_preferred">Preferred Contact Method</label>
+                <select id="preferredContact" name="preferred_contact" class="form-select">
+                  <option value="whatsapp" data-i18n="form_contact_wa">WhatsApp (Fastest response)</option>
+                  <option value="email" data-i18n="form_contact_email">Email</option>
+                  <option value="phone" data-i18n="form_contact_phone">Phone Call</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div style="margin-top: 2rem;">
+              <button type="submit" class="btn btn-primary btn-block" style="padding: 1.1rem; font-size: 1.05rem;">
+                <span data-i18n="form_submit_btn">Send Custom Order Request</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Live Preview Sticky Card -->
+        <aside class="preview-card" aria-label="Request Live Preview">
+          <div class="preview-header">
+            <h4 data-i18n="preview_title">Request Summary</h4>
+            <span class="preview-badge" data-i18n="preview_badge_bespoke">100% Handcrafted</span>
+          </div>
+
+          <div class="preview-media">
+            <img id="previewDessertImg" src="/images/ApplePie-thumb.jpg" alt="Selected Dessert Preview" />
+          </div>
+
+          <h3 id="previewDessertName" class="preview-dessert-name">Traditional Artisanal Apple Pie</h3>
+
+          <div class="preview-details">
+            <div class="preview-row">
+              <span data-i18n="preview_date">Date:</span>
+              <strong id="previewDate">—</strong>
+            </div>
+            <div class="preview-row">
+              <span data-i18n="preview_size">Size:</span>
+              <strong id="previewSize">Classic 9"</strong>
+            </div>
+            <div class="preview-row">
+              <span data-i18n="preview_contact">Contact via:</span>
+              <strong id="previewContact">WHATSAPP</strong>
+            </div>
+          </div>
+
+          <div class="preview-guarantee">
+            ✦ <strong>d'María Guarantee:</strong> Each cake is baked fresh from scratch specifically for your event date. Never pre-baked or frozen.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FAQ Section
+       ========================================================================= -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" data-i18n="faq_eyebrow">Questions & Answers</span>
+        <h2 class="section-title" data-i18n="faq_title">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h4 data-i18n="faq_q1">How far in advance should I place my request?</h4>
+          <p data-i18n="faq_a1">
+            Because we never mass-produce and only accept a limited number of orders per day, we recommend at least 3 to 7 days in advance. For large milestones or weddings, 2 to 4 weeks is advised.
+          </p>
+        </div>
+
+        <div class="faq-card">
+          <h4 data-i18n="faq_q2">Can I customize the flavor, sweetness, or decoration?</h4>
+          <p data-i18n="faq_a2">
+            Absolutely. That is the soul of d'María. We can adjust the sweetness level, accommodate flavor twists (like adding sea salt caramel or espresso notes), and tailor custom inscriptions and hand-piped finishes.
+          </p>
+        </div>
+
+        <div class="faq-card">
+          <h4 data-i18n="faq_q3">Do you accommodate food allergies?</h4>
+          <p data-i18n="faq_a3">
+            We take dietary restrictions very seriously. Please note all allergies in your request. While we can prepare nut-free and lower-sugar recipes, please be aware our boutique kitchen also handles dairy, wheat flour, and nuts.
+          </p>
+        </div>
+
+        <div class="faq-card">
+          <h4 data-i18n="faq_q4">How does payment and confirmation work?</h4>
+          <p data-i18n="faq_a4">
+            After reviewing your request, we send you a clear quote via your preferred contact channel (WhatsApp or Email). A 50% deposit confirms your date on our baking schedule, with the balance settled upon pickup or delivery.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Footer
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="brand-title">d'María<span>.</span></span>
+          <p class="footer-story" data-i18n="footer_story">
+            d'María is an artisanal pastry studio devoted to unhurried, personalized dessert craft. We do not mass-produce; each piece is individually baked for your milestone.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_hours_label">Studio Schedule</h4>
+          <ul class="footer-list">
+            <li class="contact-hours-text">Orders: Tues – Sun (9:00 AM – 6:00 PM)</li>
+            <li>Closed on Mondays for studio formulation</li>
+            <li class="contact-address-text">Artisanal Studio • Pickup by appointment</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-i18n="footer_contact_label">Inquiries & Studio</h4>
+          <ul class="footer-list">
+            <li>WhatsApp / Tel: <strong class="contact-phone-text">+1 (555) 382-7421</strong></li>
+            <li>Email: <a href="mailto:pedidos@dmaria.com" class="contact-email-text">pedidos@dmaria.com</a></li>
+            <li>Follow our craft: <strong>@dmaria.patisserie</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 d'María Pâtisserie. <span data-i18n="footer_rights">All rights reserved. Handcrafted with love.</span>
+        </div>
+        <div>
+          <a href="#requestSection" class="btn btn-glass-sm" style="font-size: 0.8rem;" data-i18n="hero_cta_request">
+            Request an Order
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       Dessert Detail Modal (with Original Full-Res Image Viewer)
+       ========================================================================= -->
+  <div id="dessertModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button type="button" id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div id="modalContent">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Success Confirmation Modal (with WhatsApp direct link)
+       ========================================================================= -->
+  <div id="successModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-card success-modal-card">
+      <div class="success-icon-badge">✓</div>
+      <h2 data-i18n="success_title">Request Received with Joy!</h2>
+      <p data-i18n="success_msg_p1">
+        Thank you for trusting d'María with your celebration. Your personalized commission inquiry has been safely received.
+      </p>
+
+      <div class="success-ref-box">
+        <div class="success-ref-label" data-i18n="success_ref_label">Your Request Reference Code:</div>
+        <div id="successRefCode" class="success-ref-code">DM-2026-0000</div>
+      </div>
+
+      <div id="successSummaryDetails" class="success-summary-box">
+        <!-- Injected dynamically -->
+      </div>
+
+      <p style="font-size: 0.9rem; margin-bottom: 1.5rem;" data-i18n="success_msg_p2">
+        We will review our kitchen schedule and reach out to you within 24 hours to confirm details and finalize your custom quote.
+      </p>
+
+      <div class="success-actions">
+        <a id="successWhatsAppBtn" href="#" target="_blank" rel="noopener" class="btn btn-whatsapp">
+          💬 <span data-i18n="success_btn_wa">Chat with the Baker on WhatsApp</span>
+        </a>
+        <button type="button" id="successCloseBtn" class="btn btn-outline" data-i18n="success_btn_close">
+          Close & Return to Home
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/i18n.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
